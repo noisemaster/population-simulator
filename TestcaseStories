@@ -1,0 +1,42 @@
+Given: The web application is functioning
+
+When: The user visits the URL
+
+Then: The user is able to input a country for which they wish to obtain the projected population
+
+
+
+
+Given: The database is updated
+
+When: The User requests a country
+
+Then: Display information about the projected population of that country.
+
+
+
+
+
+Given: The database is updated
+
+When: The User requests a country and specified a range of years
+
+Then: Display information about the projected population of that country for the specified time period.
+
+
+
+
+Given: The database is functioning
+
+When: The Admin updates information about a country
+
+Then: The information is available to the user
+
+
+
+
+Given: The website is live
+
+When: A user views ads on the website
+
+Then: The admin should receive a percentage of the revenue
