@@ -40,3 +40,13 @@ Given: The website is live
 When: A user views ads on the website
 
 Then: The admin should receive a percentage of the revenue
+
+
+
+
+
+Given: The Database is functioning
+
+When: A legitimate Country is input and a set of years is input
+
+Then: That Countries estimated information over that period of time is output
