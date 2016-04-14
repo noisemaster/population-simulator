@@ -1,5 +1,5 @@
 import sqlite3
-from flask import Flask, g
+from flask import Flask, g, render_template
 
 DATABASE = '../population.db'
 DEBUG = True
@@ -24,10 +24,9 @@ def query_db(query, args=(), one=False):
 
 @app.route('/')
 def show_all():
-    out_str = str()
-    for country in query_db('select * from pop'):
-        out_str += country[0] + " has a population of " + country[1] + "\n"
-    return out_str
+    query = query_db('select * from pop')
+    countries = [dict(country=row[0], population=row[1]) for row in query]
+    return render_template('population.html', countries=countries)
 
 @app.before_request
 def before_request():
