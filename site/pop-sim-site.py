@@ -1,7 +1,7 @@
 import sqlite3
 from flask import Flask, g, render_template
 
-DATABASE = '../population.db'
+DATABASE = '../PopulationSimulator.db'
 DEBUG = True
 
 app = Flask(__name__)
@@ -24,7 +24,7 @@ def query_db(query, args=(), one=False):
 
 @app.route('/')
 def show_all():
-    query = query_db('select * from pop')
+    query = query_db('select * from PopulationData')
     countries = [dict(country=row[0], population=row[1]) for row in query]
     return render_template('population.html', countries=countries)
 
