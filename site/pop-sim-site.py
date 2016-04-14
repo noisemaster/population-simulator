@@ -1,0 +1,43 @@
+import sqlite3
+from flask import Flask, g
+
+DATABASE = '../population.db'
+DEBUG = True
+
+app = Flask(__name__)
+app.config.from_object(__name__)
+
+def connect_db():
+    return sqlite3.connect(app.config['DATABASE'])
+
+def get_db():
+    db = getattr(g, 'db', None)
+    if db is None:
+        db = g.db = connect_db()
+    return db
+
+def query_db(query, args=(), one=False):
+    cur = get_db().execute(query, args)
+    rv = cur.fetchall()
+    cur.close()
+    return (rv[0] if rv else None) if one else rv
+
+@app.route('/')
+def show_all():
+    out_str = str()
+    for country in query_db('select * from pop'):
+        out_str += country[0] + " has a population of " + country[1] + "\n"
+    return out_str
+
+@app.before_request
+def before_request():
+    g.db = connect_db()
+
+@app.teardown_request
+def teardown_request(exception):
+    db = getattr(g, 'db', None)
+    if db is not None:
+        db.close()
+
+if __name__ == '__main__':
+        app.run()
