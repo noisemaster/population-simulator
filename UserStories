@@ -1,0 +1,47 @@
+
+Title: User Gets Information
+Acceptance Test: userGet
+Priority: 1
+Story Points: 5
+As a user
+I want to input a country of interest
+So that I can view population predictions for that country
+
+Title: Admin Updates Database
+Acceptance Test: adminUpdate
+Priority: 1
+Story Points: 1
+As an Admin
+I want to be able to update the information database
+So that the users can access it through the application
+
+
+Title: User Visits URL
+Acceptance Test: loadWebPage
+Priority: 1
+Story Points: 3
+As a user
+I want to be able to access the application from a web browser
+So that I can access it from anywhere
+
+
+
+Title: User Gets Specific Information
+Acceptance Test: userGetSpecific
+Priority: 2
+Story Points: 1
+As a user
+I want to input a country of interest as well as a range of years
+So that I can view population predictions for that country for a specific time period
+
+
+
+
+Title: Admin Receives Ad Revenue
+Acceptance Test: receiveAdRev
+Priority: 2
+Story Points: 2
+As an Admin
+I want to receive ad revenue from the website
+So that I can continue to improve the website
+
