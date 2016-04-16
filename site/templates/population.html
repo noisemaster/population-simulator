@@ -4,10 +4,14 @@
     <title>Population Simulator</title>
 </head>
 <body>
-    <select id="countries">
-        {% for item in countries %}
-            <option>{{item.country}}</option>
-        {% endfor %}
-    </select>
+    <form class="form-country">
+        <select name="countries" id="countries">
+            {% for item in countries %}
+                <option>{{item.country}}</option>
+            {% endfor %}
+        </select>
+        <input name="years" value="5" type="number" required></input>
+        <input type="submit" value="Calculate"></input>
+    </form>
 </body>
 </html>
