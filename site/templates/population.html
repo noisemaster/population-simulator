@@ -1,17 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="{{url_for('static', filename='main.css')}}" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
     <title>Population Simulator</title>
 </head>
 <body>
     <form class="form-country">
+        <label>Select a Country</label>
         <select name="countries" id="countries">
             {% for item in countries %}
                 <option>{{item.country}}</option>
             {% endfor %}
         </select>
-        <input name="years" value="5" type="number" required></input>
-        <input type="submit" value="Calculate"></input>
+        <label>Years in the future</label>
+        <input name="years" value="5" type="number" id="years" required></input>
+        <input type="button" value="Calculate" id="calculate" ></input>
     </form>
+    <script>
+        $(document).ready( function() {
+            $(":button").click(function() {
+                $.post('/calculate-years', $('form').serialize(), function(response){
+                    $('#reply').empty().append(response);
+                });
+            });
+        });
+    </script>
+    <div id="reply">
+    </div>
 </body>
 </html>
