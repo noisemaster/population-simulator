@@ -11,7 +11,7 @@ col_bir = "Birth Rate"
 col_dea = "Death Rate"
 
 # Name of the database file
-db = sqlite3.connect("population.db")
+db = sqlite3.connect("PopulationSimulator.db")
 cur = db.cursor()
 
 # General get column for country method
@@ -48,10 +48,10 @@ def get_pop_pred(country, year):
 	mig = get_mig(country)
 	bir = get_bir(country)
 	dea = get_dea(country)
-	
+
 	for i in range(year - data_year):
 		pop = pop + ((mig + bir - dea) * (pop/1000))
-	
+
 	return int(pop)
 
 # Main code starts here
@@ -60,11 +60,12 @@ def get_pop_pred(country, year):
 #	The first argument is expected to be the name of a country in the database
 #	The second argument is expected to be a year later than the year the data was taken
 # ex: DatabaseTest.py "United States" 2020
-if (len(sys.argv) > 1):
-	if (sys.argv[1] == "-countries"):
-		print(get_countries())
-	else:
-		if (len(sys.argv) > 2):
-			print(get_pop_pred(sys.argv[1], int(sys.argv[2])))
+if __name__ == "__main__":
+	if (len(sys.argv) > 1):
+		if (sys.argv[1] == "-countries"):
+			print(get_countries())
+		else:
+			if (len(sys.argv) > 2):
+				print(get_pop_pred(sys.argv[1], int(sys.argv[2])))
 
 db.close()
