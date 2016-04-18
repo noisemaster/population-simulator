@@ -3,4 +3,10 @@ body {
     background-color: rgb(41, 128, 185);
     font-family: Lato, sans-serif;
     color: white;
+    width: 960px;
+    margin: 0 auto;
+}
+
+label {
+    display: block;
 }
