@@ -28,10 +28,11 @@ def get_pop_pred(country, year):
     bir = float(query_db('SELECT "{col1}" FROM "{t}" WHERE "{col2}"="{val}"'.format(col1 = "Birth Rate", t = "PopulationData", col2 = "Country", val = country))[0][0])
     dea = float(query_db('SELECT "{col1}" FROM "{t}" WHERE "{col2}"="{val}"'.format(col1 = "Death Rate", t = "PopulationData", col2 = "Country", val = country))[0][0])
 
+    new_pop = pop
     for i in range(year):
-        pop = pop + ((mig + bir - dea) * (pop/1000))
+        new_pop = pop + ((mig + bir - dea) * (pop/1000))
 
-    return int(pop)
+    return [new_pop, pop, mig, bir, dea]
 
 @app.route('/')
 def show_all():
@@ -44,7 +45,9 @@ def calculate_pop():
     years = int(request.form['years'])
     country = request.form['countries']
     new_pop = get_pop_pred(country, years)
-    return render_template('information.html', z=str(new_pop), years=str(years))
+    pop_str = format(int(new_pop[0]), ",d")
+    new_pop_str = format(int(new_pop[1]), ",d")
+    return render_template('information.html', years=str(years), new_pop=new_pop_str, mig=str(new_pop[2]), pop=pop_str, bir=str(new_pop[3]), dea=str(new_pop[4]))
 
 @app.before_request
 def before_request():

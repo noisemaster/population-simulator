@@ -1,4 +1,5 @@
-@import url(https://fonts.googleapis.com/css?family=Lato:400,300,700);
+@import url(https://fonts.googleapis.com/css?family=Roboto+Mono|Lato:400,700,300);
+
 body {
     background-color: rgb(41, 128, 185);
     font-family: Lato, sans-serif;
@@ -7,6 +8,36 @@ body {
     margin: 0 auto;
 }
 
+.number{
+	font-family: "Roboto Mono", "Monaco", monospace;
+}
+
 label {
     display: block;
+}
+
+.keep-down {
+	position: fixed;
+	height: 30px;
+	width: 100%;
+}
+
+a:link {
+	color: white;
+	text-decoration: none;
+}
+
+a, a:visited {
+	text-decoration: none;
+	color: white;
+}
+
+a:active {
+	text-decoration: none;
+	color: white;
+}
+
+a:hover {
+	color: white;
+	text-decoration: none;
 }
