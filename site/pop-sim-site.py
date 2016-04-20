@@ -44,10 +44,10 @@ def show_all():
 def calculate_pop():
     years = int(request.form['years'])
     country = request.form['countries']
-    new_pop = get_pop_pred(country, years)
-    pop_str = format(int(new_pop[0]), ",d")
-    new_pop_str = format(int(new_pop[1]), ",d")
-    return render_template('information.html', years=str(years), new_pop=new_pop_str, mig=str(new_pop[2]), pop=pop_str, bir=str(new_pop[3]), dea=str(new_pop[4]))
+    pop_info = get_pop_pred(country, years)
+    pop_str = format(int(pop_info[0]), ",d")
+    new_pop_str = format(int(pop_info[1]), ",d")
+    return render_template('information.html', years=str(years), new_pop=new_pop_str, mig=str(pop_info[2]), pop=pop_str, bir=str(pop_info[3]), dea=str(pop_info[4]))
 
 @app.before_request
 def before_request():
