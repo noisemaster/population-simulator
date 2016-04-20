@@ -6,6 +6,9 @@
     <title>Population Simulator</title>
 </head>
 <body>
+    <header class="top">
+        <h1>Population Simulator</h1>
+    </header>
     <form class="form-country">
         <label>Select a Country</label>
         <select name="countries" id="countries">
@@ -13,11 +16,13 @@
                 <option>{{item.country}}</option>
             {% endfor %}
         </select>
+        <br />
         <label>Years in the future</label>
         <input name="years" value="5" type="number" id="years" required></input>
         <input type="button" value="Calculate" id="calculate" ></input>
     </form>
     <script>
+        //This is to grab the info from the database and send it back to the site
         $(document).ready( function() {
             $(":button").click(function() {
                 $.post('/calculate-years', $('form').serialize(), function(response){

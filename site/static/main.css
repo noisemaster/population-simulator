@@ -22,6 +22,16 @@ label {
 	width: 100%;
 }
 
+.top {
+	margin-top: 75px;
+	font-size: 1.3em;
+}
+
+label {
+	float:left;
+	width:10em;
+}
+
 a:link {
 	color: white;
 	text-decoration: none;
