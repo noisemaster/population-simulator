@@ -2,7 +2,6 @@ import sqlite3
 from flask import Flask, g, render_template, request
 
 DATABASE = '../PopulationSimulator.db'
-DEBUG = True
 
 app = Flask(__name__)
 app.config.from_object(__name__)
