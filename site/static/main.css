@@ -27,6 +27,10 @@ label {
 	font-size: 1.3em;
 }
 
+span.green {
+	color: #adff32;
+}
+
 label {
 	float:left;
 	width:10em;
