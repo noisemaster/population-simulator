@@ -30,7 +30,7 @@ def get_pop_pred(country, year):
 
     new_pop = pop
     for i in range(year):
-        new_pop = pop + ((mig + bir - dea) * (pop/1000))
+        new_pop = new_pop + ((mig + bir - dea) * (new_pop/1000))
 
     return [new_pop, pop, mig, bir, dea]
 
