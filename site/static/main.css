@@ -16,12 +16,6 @@ label {
     display: block;
 }
 
-.keep-down {
-	position: fixed;
-	height: 30px;
-	width: 100%;
-}
-
 .top {
 	margin-top: 75px;
 	font-size: 1.3em;
@@ -58,4 +52,18 @@ a:active {
 a:hover {
 	color: white;
 	text-decoration: none;
+}
+
+@media (max-width: 960px) {
+	body {
+	    background-color: rgb(41, 128, 185);
+	    font-family: Lato, sans-serif;
+	    color: white;
+	    margin: 0 auto;
+	}	
+
+	.top {
+		margin-top: 75px;
+		font-size: 1.2em;
+	}
 }
