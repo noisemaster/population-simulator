@@ -47,7 +47,10 @@ def calculate_pop():
     new_pop_str = format(int(pop_info[0]), ",d")
     pop_str = format(int(pop_info[1]), ",d")
     change = format(int(pop_info[0] - pop_info[1]), ",d")
-    return render_template('information.html', years=str(years), new_pop=new_pop_str, mig=str(pop_info[2]), pop=pop_str, bir=str(pop_info[3]), dea=str(pop_info[4]), change=change)
+    if (int(pop_info[0] - pop_info[1]) >= 0):
+        return render_template('information.html', years=str(years), new_pop=new_pop_str, mig=str(pop_info[2]), pop=pop_str, bir=str(pop_info[3]), dea=str(pop_info[4]), change=change)
+    else:
+        return render_template('information-neg.html', years=str(years), new_pop=new_pop_str, mig=str(pop_info[2]), pop=pop_str, bir=str(pop_info[3]), dea=str(pop_info[4]), change=change)
 
 @app.before_request
 def before_request():

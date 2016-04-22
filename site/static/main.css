@@ -31,6 +31,10 @@ span.green {
 	color: #adff32;
 }
 
+span.red {
+	color: rgb(192, 57, 43);
+}
+
 label {
 	float:left;
 	width:10em;
