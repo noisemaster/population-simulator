@@ -42,13 +42,17 @@ def show_all():
 @app.route('/calculate-years', methods=['GET', 'POST'])
 def calculate_pop():
     years = int(request.form['years'])
+    if (years < 0):
+        return render_template('year-error.html')
     country = request.form['countries']
     pop_info = get_pop_pred(country, years)
     new_pop_str = format(int(pop_info[0]), ",d")
     pop_str = format(int(pop_info[1]), ",d")
     change = format(int(pop_info[0] - pop_info[1]), ",d")
-    if (int(pop_info[0] - pop_info[1]) >= 0):
+    if (int(pop_info[0] - pop_info[1]) > 0):
         return render_template('information.html', years=str(years), new_pop=new_pop_str, mig=str(pop_info[2]), pop=pop_str, bir=str(pop_info[3]), dea=str(pop_info[4]), change=change)
+    elif (int(pop_info[0] - pop_info[1]) == 0):
+        return render_template('information-zero.html',  mig=str(pop_info[2]), pop=pop_str, bir=str(pop_info[3]), dea=str(pop_info[4]))
     else:
         return render_template('information-neg.html', years=str(years), new_pop=new_pop_str, mig=str(pop_info[2]), pop=pop_str, bir=str(pop_info[3]), dea=str(pop_info[4]), change=change)
 
