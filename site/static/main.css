@@ -4,7 +4,7 @@ body {
     background-color: rgb(41, 128, 185);
     font-family: Lato, sans-serif;
     color: white;
-    width: 960px;
+    max-width: 960px;
     margin: 0 auto;
 }
 
@@ -60,10 +60,11 @@ a:hover {
 	    font-family: Lato, sans-serif;
 	    color: white;
 	    margin: 0 auto;
+	    padding: 1.3em;
 	}	
 
 	.top {
-		margin-top: 75px;
+		margin-top: 25px;
 		font-size: 1.2em;
 	}
 }
