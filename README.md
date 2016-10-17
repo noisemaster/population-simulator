@@ -14,4 +14,4 @@ This project requires Flask and was made in python3, after installing Flask with
 ## Progress
 * [x] Database
 * [x] Simulation Logic
-* [ ] Website
+* [x] Website
